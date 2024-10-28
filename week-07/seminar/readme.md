@@ -1,4 +1,4 @@
-# Полезные материалы 
+# Семинар 7. DNS, P2P и DHT.
 
 ## DNS
 
@@ -48,7 +48,12 @@ dig @8.8.8.8 www.wikipedia.org. A
 dig @77.88.8.8  www.wikipedia.org. A
 ```
 
+## P2P и DHT
+
+- [Материалы семинара прошлого года про P2P](https://github.com/distsys-course/materials/tree/2023/seminars/07-peer-to-peer)
+- [Статья про Kademlia](https://infinite-source.de/az/whitepapers/kademlia_optimized.pdf)
+- [Kademlia в BitTorrent (Mainline DHT)](https://en.wikipedia.org/wiki/Mainline_DHT)
+
 ## Extra
 
 - [Что происходит, когда вы вбиваете URL в адресную строку браузера](https://aws.amazon.com/blogs/mobile/what-happens-when-you-type-a-url-into-your-browser/)
-- [Базовый дизайн BitTorrent и других p2p-сетей](https://web.cs.ucla.edu/classes/cs217/05BitTorrent.pdf#page9)
