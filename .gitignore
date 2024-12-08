@@ -11,3 +11,6 @@ debug/
 target/
 **/*.rs.bk
 *.pdb
+
+# Misc
+.ipynb_checkpoints
