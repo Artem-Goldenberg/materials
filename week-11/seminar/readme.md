@@ -33,7 +33,7 @@
 Узел может проитерироваться по логу, выполнить все операции, тем самым получив актуальное состояние
 системы.
 
-<img src="media/rsm.jpg" style="width: 1000px" />
+<div style="text-align:center"><img src="media/rsm.jpg" style="width: 700px" /></div>
 
 С помощью RSM можно реализовать любую распределенную систему, которая будет запущена на нескольких
 серверах, но вести себя так, будто запущена на одном.
@@ -99,7 +99,7 @@ Multi-Paxos.
 нового значения: сначала получают подтверждение от каждого Acceptor'a, и если есть большинство 
 голосов, рассылают сообщение о принятии нового значения.
 
-![Paxos Ballot](media/paxos-ballot.png)
+<div style="text-align:center"><img src="media/paxos-ballot.png" style="width: 700px" /></div>
 
 *Источник: [aosabook.org](https://aosabook.org/en/500L/clustering-by-consensus.html)*
 
@@ -154,7 +154,7 @@ Paxos в пользу Raft. Также Raft часто используется 
 Также есть [интерактивный сайт](http://thesecretlivesofdata.com/raft/), который наглядно показывает 
 как работает Raft в условиях Network Partition.
 
-<img src="media/raft-log.png" style="width: 814px" />
+<div style="text-align:center"><img src="media/raft-log.png" style="width: 600px" /></div>
 
 Для понимания алгоритма рекомендуем обратиться к оригинальной статье и 
 [видео от HashiCorp](https://www.youtube.com/watch?v=EGRmmxVFOfE).
@@ -210,7 +210,7 @@ docker exec -t -i raft1 /bin/bash
 Модель данных ZooKeeper похожа на древовидную файловую систему. Клиенты могут создавать узлы в дереве,
 хранить в них некоторую информацию, подписаться на обновления узлов и на изменение списка "детей" узла.
 
-![ZooKeeper tree](media/zookeeper-tree.png)
+<div style="text-align:center"><img src="media/zookeeper-tree.png" style="width: 800px" /></div>
 
 *Источник: [Kishan Kumar](https://www.0xkishan.com/blogs/decoding-zookeeper)*
 
@@ -253,14 +253,14 @@ Kubernetes использует etcd для хранения информаци�
 описание сущностей, механизм блокировок... Подробнее про использование в Kubernetes можно узнать
 [здесь](https://learnk8s.io/etcd-kubernetes).
 
-<img src="media/etcd.svg" style="width: 900px" />
+<div style="text-align:center"><img src="media/etcd.svg" style="width: 650px" /></div>
 
 По предоставляемому интерфейсу и набору решаемых задач etcd схож с ZooKeeper, но считается
 более производительным решением. Подробное сравнение доступно на 
 [странице в документации](https://etcd.io/docs/v3.3/learning/why/).
 
 В исходном коде etcd можно найти реализации различных примитивов:
-- [Распределенная блокировка][https://github.com/etcd-io/etcd/blob/main/client/ v3/concurrency/mutex.go]
+- [Распределенная блокировка](https://github.com/etcd-io/etcd/blob/main/client/v3/concurrency/mutex.go)
 - [Выбор лидера](https://github.com/etcd-io/etcd/blob/main/client/v3/concurrency/election.go)
 
 Для обращения к кластеру etcd из терминала существует утилита 
