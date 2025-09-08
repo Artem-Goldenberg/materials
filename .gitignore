@@ -1,0 +1,19 @@
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Rust
+debug/
+target/
+**/*.rs.bk
+*.pdb
+
+# Misc
+.ipynb_checkpoints
+.token
+.submissions
+_internal
