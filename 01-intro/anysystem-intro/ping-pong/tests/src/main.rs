@@ -30,10 +30,6 @@ struct Args {
     /// Random seed used in tests
     #[clap(long, short, default_value = "123")]
     seed: u64,
-
-    /// Path to AnySystem
-    #[clap(long = "anysystem", short = 'a', default_value = "../../../anysystem")]
-    anysystem_path: String,
 }
 
 fn main() {
@@ -43,7 +39,7 @@ fn main() {
         .format(|buf, record| writeln!(buf, "{}", record.args()))
         .init();
 
-    env::set_var("PYTHONPATH", format!("{}/python", args.anysystem_path));
+    append_to_python_path("../../../anysystem/python".to_string());
     env::set_var("PYTHONHASHSEED", args.seed.to_string());
     let config = TestConfig {
         impl_path: args.impl_path,
@@ -95,4 +91,15 @@ fn main() {
     } else {
         tests.run_test(&args.test.unwrap().to_uppercase().replace("_", " "));
     }
+}
+
+fn append_to_python_path(entry: String) {
+    let path_separator = if cfg!(windows) { ";" } else { ":" };
+    let current_path = env::var("PYTHONPATH").unwrap_or_default();
+    let updated_path = if current_path.is_empty() {
+        entry
+    } else {
+        format!("{current_path}{path_separator}{entry}")
+    };
+    env::set_var("PYTHONPATH", updated_path);
 }

@@ -15,6 +15,7 @@ COPY --from=builder /usr/local/cargo/bin/distsys-ping-pong /usr/local/bin/distsy
 
 WORKDIR /anysystem/python
 RUN wget https://raw.githubusercontent.com/systems-group/anysystem/refs/heads/main/python/anysystem.py
+ENV PYTHONPATH="/anysystem/python"
 
 WORKDIR /solution
-ENTRYPOINT ["distsys-ping-pong", "-a", "/anysystem"]
+ENTRYPOINT ["distsys-ping-pong"]
