@@ -279,7 +279,7 @@ fn score(results: BTreeMap<String, TestResult>) -> f32 {
     for (test, result) in results {
         if result.is_err() {
             for guarantee in guarantees.iter() {
-                if test.contains(guarantee) {
+                if test.contains(format!("[{guarantee}]").as_str()) {
                     if test.contains("OVERHEAD") {
                         failed_overheads.insert(guarantee);
                     } else {
