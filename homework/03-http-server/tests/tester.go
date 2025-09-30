@@ -117,7 +117,7 @@ func RunTests(t *TC, seed int64, runner Runner, envGen *EnvGen, queriesGen *Quer
 }
 
 func WaitForServer(t *TC, opts RunOpts) error {
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 20; i++ {
 		ctx, cancel := context.WithTimeout(t, 1*time.Second)
 		defer cancel()
 		req, err := http.NewRequestWithContext(ctx, "GET", opts.Address(), nil)
@@ -137,8 +137,8 @@ func WaitForServer(t *TC, opts RunOpts) error {
 			}
 			return nil
 		}
-		Debug(t, "Waiting 100ms for server startup", zap.Int("attempt", i), zap.Error(err))
-		time.Sleep(time.Millisecond * 100)
+		Debug(t, "Waiting 500ms for server startup", zap.Int("attempt", i), zap.Error(err))
+		time.Sleep(time.Millisecond * 500)
 	}
 	Warn(t, "Server didn't get up in time, aborting")
 	return fmt.Errorf("server did not start in 10 seconds")
