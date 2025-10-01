@@ -35,7 +35,7 @@ class HTTPHandler(StreamRequestHandler):
 @click.command()
 @click.option("--host", type=str)
 @click.option("--port", type=int)
-@click.option("--server-domain", type=str)
+@click.option("--server-domain", type=str, envvar="SERVER_DOMAIN")
 @click.option("--working-directory", type=str)
 def main(host, port, server_domain, working_directory):
     # TODO: Write your code
